@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">REGISTRATION FORM</h1>
+        
+        <form id="registrationForm">
+            <fieldset>
+                <legend>Personal Info</legend>
+                
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+2457123456789">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create password" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Info</legend>
+                
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="Enter age">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" name="country">
+                        <option value="">Select country</option>
+                        <option value="us">Kenya</option>
+                        <option value="ca">Ethiopia</option>
+                        <option value="uk">Uganda</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" name="bio" placeholder="About yourself..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Interests</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="programming" name="interests" value="programming">
+                            <label for="programming">Programming</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="design" name="interests" value="design">
+                            <label for="design">Design</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Other</legend>
+                
+                <div class="form-group">
+                    <label for="profilePic">Profile Picture</label>
+                    <input type="file" id="profilePic" name="profilePic">
+                </div>
+
+                <div class="form-group">
+                    <label for="skillLevel">Skill Level</label>
+                    <input type="range" id="skillLevel" name="skillLevel" min="1" max="10" value="5">
+                </div>
+
+                <div class="form-group">
+                    <label for="favColor">Favorite Color</label>
+                    <input type="color" id="favColor" name="favColor" value="#2563eb">
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Birth Date</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-submit">Submit</button>
+                <button type="reset" class="btn btn-reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

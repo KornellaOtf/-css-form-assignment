@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.form-container {
+    width: 600px;
+    margin: 0 auto;
+    background-color: rgba(90, 36, 1, 0.719);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+fieldset {
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-weight: bold;
+    color: #ffffff;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #324368;
+    outline: none;
+}
+
+textarea {
+    height: 80px;
+    resize: vertical;
+}
+
+.radio-option,
+.checkbox-option {
+    margin-bottom: 8px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 5px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+input[type="color"] {
+    width: 60px;
+    height: 40px;
+}
+
+.button-group {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.btn-submit {
+    background-color: #2563eb;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #47af1e;
+}
+
+.btn-reset {
+    background-color: #6b7280;
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: #ad2020;
+}
+
+@media (max-width: 650px) {
+    .form-container {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+}
