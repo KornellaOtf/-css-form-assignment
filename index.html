@@ -17,21 +17,25 @@
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
                     <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+                    <span class="error-message" id="nameError"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    <span class="error-message" id="emailError"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="phone">Phone</label>
                     <input type="tel" id="phone" name="phone" placeholder="+2457123456789">
+                    <span class="error-message" id="phoneError"></span>
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Create password" required>
+                    <span class="error-message" id="passwordError"></span>
                 </div>
             </fieldset>
 
@@ -47,9 +51,9 @@
                     <label for="country">Country</label>
                     <select id="country" name="country">
                         <option value="">Select country</option>
-                        <option value="us">Kenya</option>
-                        <option value="ca">Ethiopia</option>
-                        <option value="uk">Uganda</option>
+                        <option value="ke">Kenya</option>
+                        <option value="et">Ethiopia</option>
+                        <option value="ug">Uganda</option>
                     </select>
                 </div>
 
@@ -93,10 +97,11 @@
                 <div class="form-group">
                     <label for="profilePic">Profile Picture</label>
                     <input type="file" id="profilePic" name="profilePic">
+                    <span id="fileInfo"></span>
                 </div>
 
                 <div class="form-group">
-                    <label for="skillLevel">Skill Level</label>
+                    <label for="skillLevel">Skill Level: <span id="skillValue">5</span></label>
                     <input type="range" id="skillLevel" name="skillLevel" min="1" max="10" value="5">
                 </div>
 
@@ -116,6 +121,124 @@
                 <button type="reset" class="btn btn-reset">Reset</button>
             </div>
         </form>
+
+        <div id="formMessage" class="form-message"></div>
     </div>
+
+    <script>
+        // Form validation and interaction
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            clearErrors();
+            
+            // Validate form
+            if (validateForm()) {
+                showMessage('Form submitted successfully!', 'success');
+                // In a real application, you would send data to a server here
+            }
+        });
+
+        // Real-time validation
+        document.getElementById('fullName').addEventListener('blur', validateName);
+        document.getElementById('email').addEventListener('blur', validateEmail);
+        document.getElementById('password').addEventListener('blur', validatePassword);
+        document.getElementById('phone').addEventListener('blur', validatePhone);
+
+        // Skill level display
+        document.getElementById('skillLevel').addEventListener('input', function() {
+            document.getElementById('skillValue').textContent = this.value;
+        });
+
+        // File input info
+        document.getElementById('profilePic').addEventListener('change', function() {
+            const fileInfo = document.getElementById('fileInfo');
+            if (this.files.length > 0) {
+                fileInfo.textContent = `Selected: ${this.files[0].name}`;
+                fileInfo.style.color = '#10b981';
+            } else {
+                fileInfo.textContent = '';
+            }
+        });
+
+        // Validation functions
+        function validateName() {
+            const name = document.getElementById('fullName').value.trim();
+            const error = document.getElementById('nameError');
+            
+            if (name.length < 2) {
+                error.textContent = 'Name must be at least 2 characters long';
+                return false;
+            }
+            error.textContent = '';
+            return true;
+        }
+
+        function validateEmail() {
+            const email = document.getElementById('email').value.trim();
+            const error = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                error.textContent = 'Please enter a valid email address';
+                return false;
+            }
+            error.textContent = '';
+            return true;
+        }
+
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const error = document.getElementById('passwordError');
+            
+            if (password.length < 6) {
+                error.textContent = 'Password must be at least 6 characters long';
+                return false;
+            }
+            error.textContent = '';
+            return true;
+        }
+
+        function validatePhone() {
+            const phone = document.getElementById('phone').value.trim();
+            const error = document.getElementById('phoneError');
+            
+            if (phone && !/^[\+]?[1-9][\d]{0,15}$/.test(phone.replace(/[\s\-\(\)]/g, ''))) {
+                error.textContent = 'Please enter a valid phone number';
+                return false;
+            }
+            error.textContent = '';
+            return true;
+        }
+
+        function validateForm() {
+            return validateName() && validateEmail() && validatePassword() && validatePhone();
+        }
+
+        function clearErrors() {
+            const errors = document.querySelectorAll('.error-message');
+            errors.forEach(error => error.textContent = '');
+        }
+
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.textContent = message;
+            messageDiv.className = 'form-message ' + type;
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Reset form handler
+        document.querySelector('.btn-reset').addEventListener('click', function() {
+            clearErrors();
+            document.getElementById('skillValue').textContent = '5';
+            document.getElementById('fileInfo').textContent = '';
+            document.getElementById('formMessage').style.display = 'none';
+        });
+    </script>
 </body>
 </html>

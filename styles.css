@@ -7,7 +7,7 @@ body {
 .form-container {
     width: 600px;
     margin: 0 auto;
-    background-color: rgba(90, 36, 1, 0.719);
+    background-color: rgb(184, 109, 11);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -61,7 +61,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #324368;
+    border-color: #2563eb;
     outline: none;
 }
 
@@ -115,7 +115,7 @@ input[type="color"] {
 }
 
 .btn-submit:hover {
-    background-color: #47af1e;
+    background-color: #0d9700;
 }
 
 .btn-reset {
@@ -124,7 +124,40 @@ input[type="color"] {
 }
 
 .btn-reset:hover {
-    background-color: #ad2020;
+    background-color: #be0808;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.form-message {
+    display: none;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-message.success {
+    background-color: #10b981;
+    color: white;
+}
+
+.form-message.error {
+    background-color: #ef4444;
+    color: white;
+}
+
+#fileInfo {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+    color: #6b7280;
 }
 
 @media (max-width: 650px) {
